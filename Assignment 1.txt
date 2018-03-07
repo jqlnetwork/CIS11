@@ -1,0 +1,147 @@
+Assignment 1: CIS11
+By Jia Liang 2535593
+------------------------------------------------------------------------------------------------------
+- [ ] 1.1.3 Section Review, Questions 1,3, 8, 12
+- [ ] 1.2.1 Section Review, Questions 2, 3, 10
+- [ ] 1.3.9 Section Review, Questions 2, 3, 5, 6, 7 
+- [ ] 1.7.1 Short Answer, Questions 1-22 and 25
+- [ ] 1.7.2 Algorithm Workbench, Choose any 1 question 
+- [ ] EXTRA CREDIT: 1.4.2 Section Review, Questions 1-5 (1 point extra credit per question)
+- [ ] Upload your assignment to GitHub
+- [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
+------------------------------------------------------------------------------------------------------
+1.1.3:
+
+1. The assembler is a program that allows us to change source codes into machine language/obj files.
+The Linker follows after by turning that machine language/obj files into an executable file.
+
+3. One-to-Many basically means any code you give to the compiler
+in assembly language will turn into more code as the level of the language goes up into C++, Java, etc...
+
+8. Only assembly allows pointers to have free reign, unlike C and C++.
+
+12. Translate the following: X = (Y*4) + 3
+
+mov eax, Y
+mov ebx, 4
+imul eax, ebx
+add eax, 3
+mov X, eax
+------------------------------------------------------------------------------------------------------
+1.2.1:
+
+2. The interpreted program needs to translate itself and run at the same time, thus making it slower.
+
+3. True, it is designed for it.
+
+10. The JVM executes a Java byte code which is at level 2 where users can start to write the programs.
+------------------------------------------------------------------------------------------------------
+1.3.9:
+
+2. Using [256]...[128][64][32][16][8][4][2][1] 
+
+	a.) 128 64 32 16 8 4 2 1 = 248   b.) 128 64 32 16 8 4 2 1 = 202   c.) 128 64 32 16 8 4 2 1 = 240
+	     1   1  1  1 1 0 0 0               1  1  0  0 1 0 1 0               1  1  1  1 0 0 0 0
+
+3. using the above method, then finding out what adds up that number 
+
+	a.) 15 + 2 = 17 = 00010001 b.) 213 + 107 = 320 = 101000000 c.) 15 + 15 = 30 = 00011110
+
+5. The minimum number of binary bits needed to represent each of the following unsigned decimal integers...
+	
+	a.) 7 b.) 9 c.) 15
+	
+6. 	Using the chart, I converted: a.) 35DA   b.) CEA3   c.) FEDB
+
+7.
+	a.) 1010 0100 0110 1001 0011 1111 1011 1100
+	b.) 1011 0110 1001 0111 1100 0111 1010 0001
+    c.) 0010 1011 0011 1101 1001 0100 0110 0001
+
+------------------------------------------------------------------------------------------------------
+1.7.1:
+
+1. 0 and 1, 0 being positive and 1 being negative
+
+2. 
+	a.) 32 + 16 + 4 + 1 = 53 b.) 128 + 16 + 4 + 2 = 150 c.) 128 + 64 + 8 + 4 = 204
+
+3. 
+	a.) 128 + 32 + 8 + 4 + 2 + 1 = 175 + 128 + 64 + 16 + 8 + 2 + 1 = 394 = 110001010
+	okay I'm using calculator, too much typing
+	b.) 151 + 255 = 410 = 110011010
+	c.) 117 + 172 = 289 = 100100001
+	
+4. 0 0 0 0 1 1 0 1  = 13
+ _ 0 0 0 0 0 1 1 1  = 7
+--------------------
+   0 0 0 0 0 1 1 0  = 6
+   
+5.  8 bits for every 1 byte
+    
+	ratios
+	a.) 8:1
+	b.) 32:4
+	c.) 64:8
+	d.) 128:16
+
+6.  a.) 12
+	b.) 16
+	c.) 22
+	
+7. We did this for 1.3.9 #6 already
+
+8. 
+	a.) 0000 0001 0010 0110 1111 1001 1101 0100
+	b.) 0110 1010 1100 1101 1111 1010 1001 0101
+	c.) 1111 0110 1001 1011 1101 1100 0010 1010
+	
+9. 	a.) 58
+	b.) 447
+	c.) 4097
+	
+10. a.) 98
+	b.) 1203
+	c.) 671
+
+11. a.) FFE8
+	b.) FEB5
+	
+12. a.) FFEB
+	b.) FFD3
+	
+13. a.) 27641 
+	b.) -16093
+	
+14. a.) 19666
+	b.) -32208
+	
+15. a.) -75
+	b.) 42
+	c.) -16
+
+16. a.) -128
+	b.) -52
+	c.) -73
+	
+17. a.) 11111011 
+	b.) 11010110 
+	c.) 11110000
+
+18. a.) 10111000 
+	b.) 10011110 
+    c.) 11100110
+	
+19. a.) 6B4 + 3FE = AB2
+	b.) A49 + 6BD = 1106
+	
+20. a.) sum of 7C4 + 3BE = B82
+    b.) B69 + 7AD = 1316
+	
+21. hex 42 ascii number 66
+
+
+22. hex 47 ascii number 71
+
+
+
