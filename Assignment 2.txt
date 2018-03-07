@@ -1,0 +1,64 @@
+Assignment 2
+By Jia Liang 2535593
+--------------------------------------------------------------------
+- [ ] 2.1.5 Section Review, Questions 1,2,3,4 and 5
+- [ ] 2.4.3 Section Review, Question 5
+- [ ] 2.5.2 Section Review, Questions 1, 3, 4, and 5
+- [ ] 2.8 Review Question 7, 8, 9, 10, 12, 19, 20, 25, and 26
+--------------------------------------------------------------------
+2.1.5:
+
+1. The CPU contains a clock speed, arithmetic logic unit, and a control unit.
+Clock speed to keep tempo among other operations; ALU for calculations, and control unit is for steps.
+
+2. The buses are D C A. Data bus, control bus and access bus.
+
+3. It takes more memory access because memory is not internal but registers are.
+
+4.  a.) fetching the instructions from the instruction queue.
+	b.) The cpu decodes by looking at binary bit pattern.
+	c.) fetches the operands if the 2nd step finds any in the binary bit pattern.
+	d.) The cpu executes the instruction and if any operand is found earlier, it'll store the result inside.
+
+5. I explain this in detail on the previous question on letters c and d.
+--------------------------------------------------------------------
+2.4.3:
+
+5. The purpose of the 8259A PIC controller is that whenever we want our peripherals to respond instead of waiting,
+this PIC controller allows us pause the CPU and read our instructions immediately.
+--------------------------------------------------------------------
+2.5.2:
+
+1. Level 3 because high level languages is used the most by people,
+and that makes the application program the most portable as well.
+
+3. Data is not updated with time and companies want to release more new 
+software/hardware that may or may not be compatible with older versions.
+
+4. So between the OS function(Level 2) and Hardware(Level 0), the answer is BIOS Function(Level 1).
+
+5. No, I have built a couple of computers now, both with windows and linux mint and it would be
+inefficient to have separate BIOS.
+--------------------------------------------------------------------
+2.8 Review:
+
+7. The control unit preforms FPA from the floating point unit.
+
+8. 48 bits in the data register.
+
+9. True, because of the 64 bits used in both instruction sets.
+
+10. False, because doesn't the Floating-Point prove that it can just use 48 bits?
+
+12. False, SRAM is faster cache memory than dynamic memory.
+
+19. False, a bus are parallel wires that sit on the motherboard.
+
+20. False, CMOS ram can lose its memory when disconnected, 
+such as me taking mine out when i want to reset my motherboard.
+
+25. ''Assembly Program'' can start to manipulate input and output when the levels are 0, 1, 2.
+It can change hardware, the BIOS and the OS. Once it reaches level 3, it is no longer assembly.
+
+26. So that you can take advantage of the special features that the hardware provides. It can also reduce
+the amount of memory taken up by the OS.
