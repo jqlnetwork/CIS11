@@ -1,0 +1,110 @@
+Assignment 3
+By Jia Liang 2535593
+--------------------------------------------------------------------
+- [ ] 3.1.11 Section Review, Questions 1, 2, 3, 4
+- [ ] 3.2.4 Section Review, Questions 4, 5
+- [ ] 3.3.3 Section Review, Questions 1, 2, 3, 4
+- [ ] 3.4.13 Section Review, Questions 1, 2, 3, 4, 5
+- [ ] 3.5.5 Section Review Question 3
+- [ ] 3.9.1 Short Answer, Questions 4, 5, 6, 25
+- [ ] 3.9.2 Algorithm Workbench, Questions 4, 7, 13
+- [ ] 3.10 Programming Exercises, Pick any 1 exercise
+--------------------------------------------------------------------
+3.1.11:
+
+1. -35 = -221d = DDh = 11011101b = 335o
+
+2. A hexadecimal literal beginning with a letter must have a leading zero to prevent the assembler
+from interpreting it as an identifier, so no.
+
+3. No, the order of operations for multiplying and dividing in math are the same here so it doesn't matter which one.
+
+4. (10 + 5 MOD 2) * 9 / 3 + 2 = 5
+
+--------------------------------------------------------------------
+3.2.4:
+
+4. EAX is the recipient of the sum.
+
+5. invoke ExitProcess, 0
+this returns 0 to the program, telling it that it has successfully ran. 
+
+--------------------------------------------------------------------
+3.3.3:
+
+1. Assemblers produce Object and listing files.
+
+2. True
+
+3. True
+
+4. Operating system loader.
+
+--------------------------------------------------------------------
+3.4.13:
+
+1. num1 SWORD
+
+2. date BYTE
+
+3. year SBYTE
+
+4. age QWORD
+
+5. SDWORD
+
+--------------------------------------------------------------------
+3.5.5:
+
+3. ArraySize = ($ - myList)
+
+--------------------------------------------------------------------
+3.9.1:
+
+4. It translates the source code because in the end, it's just text that we can read and write normally.
+machine code is when it is just 1's and 0's that are actually not meant to be read by humans.
+
+5. Big Endian is when the format of data/primary value is sorted from greatest to least, 
+This case is opposite for little Endian.
+
+6. They have multiple perks such as not needing to reserve space for, due to being used only for scanning a program.
+They also cannot change themselves at runtime, keeping that data constant.
+
+25. SDWORD creates an 32 signed integer. S = signed DWORD = 32-bit
+
+--------------------------------------------------------------------
+3.9.2:
+
+4. it works, it understands the data directive and whether its negative or not.
+
+7. myArray DWORD 120 DUP()
+
+13. myString BYTE 500 DUP('TEST')
+
+--------------------------------------------------------------------
+3.10:
+1. Integer Expression Calculation
+------------------------------------------
+ExitProcess proto
+
+.data
+sum qword 0
+
+.code
+main proc
+   mov rax, 1
+   mov rbx, 2
+   add rax, rbx
+
+   mov ecx, 3
+   mov edx, 4
+   add ecx, edx
+
+   sub eax, ecx
+
+   call ExitProcess
+
+main endp
+end
+------------------------------------------
+--------------------------------------------------------------------
