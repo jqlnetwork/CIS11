@@ -61,10 +61,10 @@ mov al,[esi+3] 				; b. AL = 40h //counting from the first value, move 3 to righ
 mov esi,OFFSET myWords + 2
 mov ax,[esi] 				; c. AX = 003Bh //starting from 0, move 2 to right, ax requires 16 bits
 mov edi,8
-mov edx,[myDoubles + edi]   		; d. EDX = 00000003d //starting from 0, move 8 to the right. 
+mov edx,[myDoubles + edi]   		; d. EDX = 0003d //starting from 0, move 8 to the right. 
 1 2 3 4 5 -> repeats 1 2 [3] this is the eighth number in the array. edx is 32 bits.
 
-mov edx,myDoubles[edi]			; e. EDX =  
+mov edx,myDoubles[edi]			; e. EDX = 3 // eigth number in the myDoubles 
 mov ebx,myPointer
 mov eax,[ebx+4] 			; f. EAX = 
 ------------------------------------------------------------------------------------
