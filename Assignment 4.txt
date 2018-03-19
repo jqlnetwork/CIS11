@@ -1,0 +1,103 @@
+- [ ] 4.2.8 Section Review, Questions 1, 2, 3, 4, 5, 6	
+- [ ] 4.3.8 Section Review, Questions 1,2,3,4,5
+- [ ] 4.4.5 Section Review, Questions 4,5
+- [ ] 4.10 Programming Exercises, Question 7
+
+
+- [ ] Upload your assignment to GitHub
+- [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
+
+***  23 points (13 for the first 13 questions and 10 for 4.10 ***
+----------------------------------------------------------------------------------
+4.2.8:
+
+1.INC val2
+
+2.
+sub eax, val3
+
+3. sub val2, val4
+
+4. add val2, 1 
+if its from add/sub, the CF will = 0 due to sum not exceeding storage size, and the SF will = 1 .
+
+5. add val4, 1
+there isn't any overflow as it'll become 8FFFh, and for Signed Flag, its the same as last problem, SF = 1.
+
+6. 
+mov ax, 7FF0h
+add al, 10h  ; A. CF = 1 SF = 0 ZF = 1 OF = 0
+add ah, 1    ; B. CF = 0 SF = 1 ZF = 0 OF = 1
+add ax, 2    ; C. CF = 0 SF = 1 ZF = 0 OF = 0   
+
+------------------------------------------------------------------------------------
+4.3.8:
+
+1.False, because it measures distance in bytes, kind of like a radius in math.
+
+2. False, its main job is to override the declared size of an operand.
+
+3. True, the type of a DWORD = 4. pg.115
+
+4. False, it returns the number of elements in an array.
+
+5. True, it gives us the size of the byte by multiplying lengthOf and type.
+
+------------------------------------------------------------------------------------
+4.4.5:
+
+4. True, the operand would need to have a size so there would be an error.
+
+5.
+
+myBytes BYTE 10h,20h,30h,40h
+myWords WORD 8Ah,3Bh,72h,44h,66h
+myDoubles DWORD 1,2,3,4,5
+myPointer DWORD myDoubles
+
+mov esi,OFFSET myBytes
+mov al,[esi] 				; a. AL = 10h //first value.
+mov al,[esi+3] 				; b. AL = 40h //counting from the first value, move 3 to right.
+mov esi,OFFSET myWords + 2
+mov ax,[esi] 				; c. AX = 003Bh //starting from 0, move 2 to right, ax requires 16 bits
+mov edi,8
+mov edx,[myDoubles + edi]   ; d. EDX = 00000003d //starting from 0, move 8 to the right. 
+1 2 3 4 5 -> repeats 1 2 [3] this is the eighth number in the array. edx is 32 bits.
+
+mov edx,myDoubles[edi]		; e. EDX = still 3. 
+mov ebx,myPointer
+mov eax,[ebx+4] 			; f. EAX = 2
+------------------------------------------------------------------------------------
+4.10: 
+
+#7:
+ExitProcess proto
+
+.data
+source BYTE "This is a string",0
+target BYTE SIZEOF source DUP('#')
+
+.code
+
+main proc
+
+	;initialize rcx SIZEOF source
+	MOV rcx, SIZEOF source
+	;initialize pointer to first character in target
+	MOV rbx,0
+
+	;start loop
+MYLOOP:
+	;copy current character in source to current character in target
+	MOV rdx, QWORD PTR source[rcx - 1]
+	;mov that character to current character in target
+	MOV QWORD PTR [target + rbx], rdx
+	;increment our target pointer
+	INC rbx
+	;end loop
+LOOP MYLOOP
+
+call ExitProcess
+main endp
+end
+------------------------------------------------------------------------------------
