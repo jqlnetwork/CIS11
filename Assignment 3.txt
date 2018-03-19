@@ -77,7 +77,7 @@ They also cannot change themselves at runtime, keeping that data constant.
 
 4. it works, it understands the data directive and whether its negative or not.
 
-7. myArray DWORD 120 DUP()
+7. myArray DWORD 120 DUP(?)
 
 13. myString BYTE 500 DUP('TEST')
 
