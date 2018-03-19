@@ -11,10 +11,9 @@
 ----------------------------------------------------------------------------------
 4.2.8:
 
-1.INC val2
+1. INC val2
 
-2.
-sub eax, val3
+2. sub eax, val3
 
 3. sub val2, val4
 
@@ -49,7 +48,6 @@ add ax, 2    ; C. CF = 0 SF = 1 ZF = 0 OF = 0
 4. True, the operand would need to have a size so there would be an error.
 
 5.
-
 myBytes BYTE 10h,20h,30h,40h
 myWords WORD 8Ah,3Bh,72h,44h,66h
 myDoubles DWORD 1,2,3,4,5
