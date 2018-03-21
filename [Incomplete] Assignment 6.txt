@@ -2,10 +2,37 @@ Assignment 6:
 - [ ] 5.9 Programming Exercises, Questions 7, 10
 ----------------------------------------------------------------------
 7:
+;Random Screen Locations
+
+ExitProcess proto
+WriteInt64 proto
+ReadInt64 proto
+Random64 proto
+
+.data
+;declare a random character
+
+.code
+
+main proc
+;XDR rdx, rdx
+call Random64
+mov rcx, 100
+div rcx
+mov rcx, rdx
+
+MYLOOP:
+mov rax, rcx
+call WriteInt64
+
+LOOP MYLOOP:
+  call ReadInt64
+  call crlf
+
+main endp
 
 
-
-
+end
 ----------------------------------------------------------------------
 
 
