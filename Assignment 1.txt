@@ -143,5 +143,9 @@ mov X, eax
 
 22. hex 47 ascii number 71
 
-
-
+1.4.2: Extra Credit
+1. Not X or Y
+2. X and Y
+3. True and False or True = True
+4. False
+5. True
