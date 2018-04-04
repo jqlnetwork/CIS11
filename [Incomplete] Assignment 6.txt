@@ -41,6 +41,55 @@ counter of the number of values to generate. Write a test program that calls you
 passing N = 47. The first value in the array will be 1, and the last value will be 2,971,215,073.
 Use the Visual Studio debugger to open and inspect the array contents.
 
+;FIB GEN
 
-http://csprogrammingtutorial.blogspot.com/2018/01/program-to-fibonacci-generator-in-assembly.html
+ExitProcess proto
+WriteInt proto
+Crlf proto
+
+.data
+m2 QWORD 0 ;variable: n-2
+m1 QWORD 1;variable: n-1
+n QWORD ?
+
+.code
+
+main proc
+; set counter to 47
+mov rcx, 47
+
+;print m2
+mov rax, m2 
+call WriteInt64
+call Crlf
+
+;print m1
+mov rax, m1 
+call WriteInt64
+call Crlf
+
+myLOOP:;start loop
+
+;set n = m1 + m2
+mov r9, m2
+add r9, m1
+mov n, r9
+
+;print n
+mov rax, n
+call WriteInt64
+
+mov r9, m1
+mov m2, r9
+
+mov r9, n
+mov m1, r9
+
+loop myLOOP
+
+mov ecx, 0
+
+call ExitProcess
+main endp
+end
 ----------------------------------------------------------------------
