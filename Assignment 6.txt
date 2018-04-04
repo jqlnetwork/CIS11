@@ -70,7 +70,7 @@ call Crlf
 
 myLOOP:;start loop
 
-;set n = m1 + m2
+;set n = m2 + m1
 mov r9, m2
 add r9, m1
 mov n, r9
@@ -78,7 +78,9 @@ mov n, r9
 ;print n
 mov rax, n
 call WriteInt64
+call Crlf
 
+;m2 = m1
 mov r9, m1
 mov m2, r9
 
