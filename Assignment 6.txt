@@ -44,7 +44,7 @@ Use the Visual Studio debugger to open and inspect the array contents.
 ;FIB GEN
 
 ExitProcess proto
-WriteInt proto
+WriteInt64 proto
 Crlf proto
 
 .data
