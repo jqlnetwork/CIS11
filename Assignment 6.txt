@@ -87,7 +87,7 @@ mov m2, r9
 mov r9, n
 mov m1, r9
 
-loop myLOOP
+LOOP myLOOP
 
 mov ecx, 0
 
