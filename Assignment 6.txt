@@ -10,7 +10,7 @@ ReadInt64 proto
 Random64 proto
 
 .data
-;declare a random character
+myChar BYTE ?
 
 .code
 
