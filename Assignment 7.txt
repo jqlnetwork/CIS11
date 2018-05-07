@@ -1,0 +1,205 @@
++# CIS 11 - Computer Architecture - Assignment 7
++Due 2 Weeks before the final day of classes
++
++    - [ ] 6.11.2 Programming Exercises, Questions 5 & 6 (submit these as one source code file)
++	
++	
++    - [ ] Upload your assignment to GitHub
++    - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
++	
++	***  20 points (10 points for each question) ***
+
+INCLUDE Irvine32.inc
+
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess proto,dwExitCode:dword
+
+.data
+op1 BYTE ?;
+x DWORD ?;
+Y DWORD ?;
+
+CaseTable BYTE '1' 
+DWORD ANDxy
+EntrySize = ($ - CaseTable);
+BYTE '2' 
+DWORD ORxy
+BYTE '3' 
+DWORD NOTx
+BYTE '4' 
+DWORD XORxy
+BYTE '5' 
+DWORD EXITp
+
+NumberOfEntries = ($ - CaseTable) / EntrySize;
+
+c1 BYTE "1. x AND y", 0;
+c2 BYTE "2. x OR y", 0;
+c3 BYTE "3. NOT x", 0;
+c4 BYTE "4. x XOR y", 0;
+c5 BYTE "5. Exit Program",0;
+c6 BYTE "Enter HEX X", 0
+c7 BYTE "Enter HEX Y", 0
+
+
+.code
+main proc
+
+	mov eax, 0;
+
+; display the options
+
+	mov edx, OFFSET c1;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c2;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c3;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c4;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c5;
+	call WriteString;
+	call Crlf;
+
+	call ReadChar;
+	mov ebx, OFFSET CaseTable;
+	mov ecx, NumberOfEntries;
+
+	invoke ExitProcess,0;
+main endp
+
+L1:
+	mov eax, [ebx];
+	jne L2;
+	call NEAR PTR [ebx + 1];
+	jmp L3;
+LOOP L1;
+
+L2:
+	add ebx, EntrySize;
+LOOP L1; instead of staying, try again on the first loop.
+
+L3:
+	invoke ExitProcess,0;
+LOOP L3;
+
+ANDxy proc
+	mov edx, OFFSET c1;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c6; is asking for X value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+	mov x, eax;
+
+	mov edx, OFFSET c7; is asking for Y value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+
+	;AND them, but u cannot (mem,mem)
+	mov eax, y
+	AND x, eax
+
+	mov eax, x
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
+ANDxy endp
+
+ORxy proc
+	mov edx, OFFSET c2;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c6; is asking for X value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+	mov x, eax;
+
+	mov edx, OFFSET c7; is asking for Y value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+
+	;OR them, but u cannot (mem,mem)
+	mov eax, y
+	OR x, eax
+
+	mov eax, x
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
+ORxy endp
+
+NOTx proc
+	mov edx, OFFSET c3;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c6; is asking for X value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+	mov x, eax;
+
+	NOT x
+
+	mov eax, x
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
+NOTx endp
+
+XORxy proc
+	mov edx, OFFSET c4;
+	call WriteString;
+	call Crlf;
+
+	mov edx, OFFSET c6; is asking for X value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+	mov x, eax;
+
+	mov edx, OFFSET c7; is asking for Y value
+	call WriteString;
+	call ReadHex;
+	call Crlf;
+
+	;XOR them, but u cannot (mem,mem)
+	mov eax, y
+	XOR x, eax
+
+	mov eax, x
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
+XORxy endp
+
+EXITp proc
+
+	mov edx, OFFSET c5
+	call WriteString
+
+	invoke ExitProcess, 0;
+EXITp endp
+
+end main
