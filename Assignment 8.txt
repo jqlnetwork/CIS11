@@ -1,0 +1,53 @@
+- [ ] Convert this variable to decimal: DWORD  1111 1111 1111 1111 1111 1111 1111 1110b
+- [ ] Convert this variable to decimal: SDWORD 1111 1111 1111 1111 1111 1111 1111 1110b
+- [ ] Convert this variable to decimal: DWORD  0000 0000 0000 0000 0000 0000 1111 1110b
+- [ ] Convert this variable to decimal: SDWORD 0000 0000 0000 0000 0000 0000 1111 1110b
+- [ ] Submit this assignment by 4/3/2018 for extra credit	
+
+INCLUDE Irvine32.inc
+WriteInt proto
+
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess proto,dwExitCode:dword
+
+.data
+val1 DWORD 11111111111111111111111111111110b
+val2 SDWORD 11111111111111111111111111111110b
+val3 DWORD 00000000000000000000000011111110b
+val4 SDWORD 00000000000000000000000011111110b
+
+.code
+
+main proc
+
+; start with storing the value
+mov eax, val1
+call WriteInt
+
+;answer = 4294967294
+
+; needs sign extension for SDWORD, flip the answer into negative
+mov ebx, val2
+NOT ebx ; invert the binary
+inc ebx ; add 1
+call WriteInt
+
+;answer = -2
+
+mov ecx, val3
+call WriteInt
+
+;answer = 254
+
+; same as val2
+mov edx, val4
+NOT edx ; invert the binary
+inc edx ; add 1
+call WriteInt
+
+	call ExitProcess
+main endp
+
+end main
