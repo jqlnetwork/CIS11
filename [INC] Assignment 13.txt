@@ -14,3 +14,66 @@
 + - [ ] Email james.wilson@rccd.edu with the url to the source code on GitHub	
 +	
 +	*** 25 points ***
+
+Crlf proto
+ExitProcess proto
+WriteInt64 proto
+
+
+.data
+array1 QWORD 1, 4, 5, 2, 7, 9, 3, 6, 8
+
+.code
+main proc
+
+;print the array
+	mov rcx, LENGTHOF array1
+	mov rsi, 0
+L1:
+	mov rax, array1[rsi * 8]
+	call WriteInt64
+	inc rsi
+LOOP L1
+call Crlf
+
+; bubble sort the array
+mov rcx, LENGTHOF array1
+
+OUTERLOOP:
+	mov r15, rcx
+	mov rcx, LENGTHOF array1
+	dec rcx
+	mov rsi, 0
+
+	INNERLOOP:
+		mov r9, array1[rsi *8]
+		mov r11, rsi
+		inc r11
+		mov r10, array1[rsi *8]
+		cmp r9, r10
+		jle ENDLOOP
+
+		SWAP:
+			mov r13, r9
+			mov array1[rsi *8], r10
+			mov array1[rsi *8], r13
+			
+			ENDLOOP:
+				inc rsi
+	LOOP INNERLOOP
+	mov rcx, r15
+LOOP OUTERLOOP
+LOOP ENDLOOP
+
+; print the array
+	mov rcx, LENGTHOF array1
+	mov rsi, 0
+L3:
+	mov rax, array1[rsi * 8]
+	call WriteInt64
+	inc rsi
+LOOP L3
+
+	call  ExitProcess
+main endp
+end
