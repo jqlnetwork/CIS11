@@ -46,6 +46,8 @@ mov edx, val4
 NOT edx ; invert the binary
 inc edx ; add 1
 call WriteInt
+;discussed this with Mr.Wilson after class. Had to manually invert it and add 1.
+;the value in front is 0 which caused a problem with WriteInt when using signed binary.
 
 	call ExitProcess
 main endp
