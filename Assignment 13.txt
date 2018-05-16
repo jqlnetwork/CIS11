@@ -15,6 +15,7 @@
 +	
 +	*** 25 points ***
 
+
 Crlf proto
 ExitProcess proto
 WriteInt64 proto
@@ -37,7 +38,7 @@ LOOP L1
 call Crlf
 
 ; bubble sort the array
-mov rcx, LENGTHOF array1
+mov rcx, LENGTHOF array1 ; resets the loop counter
 
 OUTERLOOP:
 	mov r15, rcx
