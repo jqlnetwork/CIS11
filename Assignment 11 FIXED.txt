@@ -24,10 +24,11 @@ mov esi, OFFSET myArray ; source index
 mov ecx, LENGTHOF myArray - 1 ; size of array is loop counter, array starts at 0 index
 
 L1:
-	mov eax, [esi] ; can use source index without modifying it.
-	XCHG eax, [esi + 4] ; DWORD is 4 bytes per array, exchanges with first value
-	mov [esi], eax ; moves current value of eax into source index
-	add esi, 4 ; the number of bytes in DWORD, or we can use TYPE
+	mov ebx, [esi] ;
+	mov edx, [esi + 4] ; 
+	mov [esi], edx ; 
+	mov [edx + 4], ebx ; 
+	add esi, TYPE myArray ;
 LOOP L1
 
 	call ExitProcess
