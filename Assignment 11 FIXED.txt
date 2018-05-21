@@ -7,6 +7,7 @@ exchange with item i+3, and so on
  Email james.wilson@rccd.edu with the url to the source code on GitHub
 
 *** 22 points ***
+
 INCLUDE Irvine32.inc
 
 .386
@@ -15,25 +16,23 @@ INCLUDE Irvine32.inc
 ExitProcess proto,dwExitCode:dword
 
 .data
-myArray DWORD 3, 6, 9, 12, 15, 18, 21, 24
+myArray DWORD 3, 6, 9, 12, 15, 18, 21, 24 ; 8 numbers
 .code
 
 main proc
 mov esi, OFFSET myArray ;
 mov ecx, LENGTHOF myArray -1 ;
 
+; ze loop, oui
 L1:
 	mov ebx, [esi] ;
 	mov edx, [esi + 4] ; 
 	mov [esi], edx ;
 	mov [esi + 4], ebx ;
 	add esi, TYPE myArray ;
-
 LOOP L1
 
 	call ExitProcess
 main endp
 
 end main
-
-; my mistake was putting the array inside code instead of data
