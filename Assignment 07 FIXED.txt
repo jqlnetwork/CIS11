@@ -6,9 +6,10 @@ INCLUDE Irvine32.inc
 ;ExitProcess proto,dwExitCode:DWORD
 
 .data
-op1 BYTE "Enter an option: ", 0;
-x BYTE ?;
-Y BYTE ?;
+op1 BYTE "Enter an option: ", 0
+op2 BYTE "You have chosen ", 0
+x BYTE ?
+Y BYTE ?
 answer BYTE ?
 
 CaseTable BYTE '1' 
@@ -25,11 +26,11 @@ DWORD EXITp
 
 NumberOfEntries = ($ - CaseTable) / EntrySize;
 
-c1 BYTE "1. x AND y", 0;
-c2 BYTE "2. x OR y", 0;
-c3 BYTE "3. NOT x", 0;
-c4 BYTE "4. x XOR y", 0;
-c5 BYTE "5. Exit Program",0;
+c1 BYTE "1. x AND y", 0
+c2 BYTE "2. x OR y", 0
+c3 BYTE "3. NOT x", 0
+c4 BYTE "4. x XOR y", 0
+c5 BYTE "5. Exit Program",0
 c6 BYTE "Enter HEX X: ", 0
 c7 BYTE "Enter HEX Y: ", 0
 
@@ -38,7 +39,7 @@ c7 BYTE "Enter HEX Y: ", 0
 .code
 main proc
 
-	mov eax, 0;
+	mov eax, 0
 
 ; display the options
 
@@ -46,165 +47,186 @@ main proc
 	call WriteString
 	call Crlf
 
-	mov edx, OFFSET c1;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET c1
+	call WriteString
+	call Crlf
 
-	mov edx, OFFSET c2;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET c2
+	call WriteString
+	call Crlf
 
-	mov edx, OFFSET c3;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET c3
+	call WriteString
+	call Crlf
 
-	mov edx, OFFSET c4;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET c4
+	call WriteString
+	call Crlf
 
-	mov edx, OFFSET c5;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET c5
+	call WriteString
+	call Crlf
 
-	call ReadChar;
-	mov ebx, OFFSET CaseTable;
-	mov ecx, NumberOfEntries;
+	call ReadChar
+	mov ebx, OFFSET CaseTable
+	mov ecx, NumberOfEntries
 	
 	L1:
 		cmp al, [ebx]
-		jne L2;
-		call NEAR PTR [ebx + 1];
-		jmp L3;
+		jne L2
+		call NEAR PTR [ebx + 1]
+		jmp L3
 
 	L2:
-		add ebx, EntrySize;
-	LOOP L1; instead of staying, try again on the first loop.
+		add ebx, EntrySize
+	LOOP L1
 
 	L3:
-		invoke ExitProcess,0;
-	LOOP L3;
+		invoke ExitProcess, 0
+	LOOP L3
 
-	invoke ExitProcess,0;
+	invoke ExitProcess, 0
 main endp
 
 
 ANDxy proc
-	mov edx, OFFSET c1;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET op2
+	call WriteString
+	call Crlf
+
+	mov edx, OFFSET c1
+	call WriteString
+	call Crlf
 
 	mov edx, OFFSET c6; is asking for X value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
-	mov x, al;
+	call WriteString
+	call ReadHex
+	call Crlf
+	mov x, al
 
 	mov edx, OFFSET c7; is asking for Y value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
+	call WriteString
+	call ReadHex
+	call Crlf
 
 	;AND them, but u cannot (mem,mem)
-	AND al, x;
-	mov y, al;
+	AND al, x
+	mov y, al
 	mov edx, OFFSET answer
 	
-	call WriteString;
-	movzx eax, y;
-	call WriteBin;
-	call Crlf;
-	call WriteHex;
-	ret;
+	call WriteString
+	movzx eax, y
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
 ANDxy endp
 
 ORxy proc
-	mov edx, OFFSET c2;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET op2
+	call WriteString
+	call Crlf
+
+	mov edx, OFFSET c2
+	call WriteString
+	call Crlf
 
 	mov edx, OFFSET c6; is asking for X value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
-	mov x, al;
+	call WriteString
+	call ReadHex
+	call Crlf
+	mov x, al
 	
 	mov edx, OFFSET c7; is asking for Y value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
+	call WriteString
+	call ReadHex
+	call Crlf
 
 	;OR them, but u cannot (mem,mem)
 
-	OR al, x;
-	mov y, al;
-	mov edx, OFFSET answer;
+	OR al, x
+	mov y, al
+	mov edx, OFFSET answer
 	
-	call WriteString;
-	movzx eax, y;
-	call WriteBin;
-	call Crlf;
-	call WriteHex;
-	ret;
+	call WriteString
+	movzx eax, y
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
 ORxy endp
 
 NOTx proc
-	mov edx, OFFSET c3;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET op2
+	call WriteString
+	call Crlf
+
+	mov edx, OFFSET c3
+	call WriteString
+	call Crlf
 
 	mov edx, OFFSET c6; is asking for X value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
+	call WriteString
+	call ReadHex
+	call Crlf
 
-	NOT al;
-	mov x, al;
-	mov edx, OFFSET answer;
+	NOT al
+	mov x, al
+	mov edx, OFFSET answer
 	
-	call WriteString;
-	movzx eax, x;
-	call WriteBin;
-	call Crlf;
-	call WriteHex;
-	ret;
+	call WriteString
+	movzx eax, x
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
 NOTx endp
 
 XORxy proc
-	mov edx, OFFSET c4;
-	call WriteString;
-	call Crlf;
+	mov edx, OFFSET op2
+	call WriteString
+	call Crlf
+
+	mov edx, OFFSET c4
+	call WriteString
+	call Crlf
 
 	mov edx, OFFSET c6; is asking for X value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
-	mov x, al;
+	call WriteString
+	call ReadHex
+	call Crlf
+	mov x, al
 
 	mov edx, OFFSET c7; is asking for Y value
-	call WriteString;
-	call ReadHex;
-	call Crlf;
+	call WriteString
+	call ReadHex
+	call Crlf
 
 	;XOR them, but u cannot (mem,mem)
 	XOR al, x
 	mov y, al
-	mov edx, OFFSET answer;
+	mov edx, OFFSET answer
 	
-	call WriteString;
-	movzx eax, y;
-	call WriteBin;
-	call Crlf;
-	call WriteHex;
-	ret;
+	call WriteString
+	movzx eax, y
+	call WriteBin
+	call Crlf
+	call WriteHex
+	ret
 XORxy endp
 
 EXITp proc
+	mov edx, OFFSET op2
+	call WriteString
+	call Crlf
 
 	mov edx, OFFSET c5
 	call WriteString
 	call Crlf
 	
-	invoke ExitProcess, 0;
+	invoke ExitProcess, 0
 EXITp endp
 
 end main
+
+; had to clean up my code and make sure it works on my pc.
