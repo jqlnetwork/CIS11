@@ -34,7 +34,6 @@ mov r15, 8
 ; mov rdi, rax
 ; mov rax, lArray[rdi]
 ; call WriteInt64
-; inc rsi
 ; end loop
 
 PRINTLOOP:
