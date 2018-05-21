@@ -68,7 +68,7 @@ OUTERLOOP:
 	mov rcx, r15
 LOOP OUTERLOOP
 
-; print the array
+; print the array again
 	mov rcx, LENGTHOF array1
 	mov rsi, 0
 L3:
