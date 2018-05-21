@@ -14,7 +14,7 @@ ReadInt64 proto
 Crlf proto
 
 .data
-fArray QWORD 10d, 20d, 30d, 40d ; firstArray
+fArray QWORD 100d, 200d, 300d, 400d ; firstArray
 lArray QWORD 4 DUP(0)           ; lastArray
 
 .code
@@ -34,6 +34,7 @@ mov r15, 8
 ; mov rdi, rax
 ; mov rax, lArray[rdi]
 ; call WriteInt64
+; inc rsi
 ; end loop
 
 PRINTLOOP:
@@ -42,8 +43,9 @@ PRINTLOOP:
 	mov rdi, rax
 	mov rax, fArray[rdi]
 	call WriteInt64
+	inc rsi
+	call Crlf
 LOOP PRINTLOOP
-call Crlf
 
 ;last value
 ;loop thru array
@@ -52,6 +54,7 @@ call Crlf
 ;if last position,
 ;paste current position to first position of lArray
 
+call Crlf
 mov rcx, LENGTHOF fArray
 mov rsi, 0
 
@@ -59,8 +62,8 @@ L1:
 	mov rax, rsi
 	mul r15
 	mov rdx, fArray[rax]
-
 	cmp rsi, 3
+
 	je HandleLast
 		mov lArray[rax + 8], rdx
 	jmp EndLoop
@@ -81,9 +84,12 @@ L2:
 	mov rdi, rax
 	mov rax, lArray[rdi]
 	call WriteInt64
+	inc rsi
 	call Crlf
 LOOP L2
 
-	call ExitProcess
+call ReadInt64
+
+call ExitProcess
 main endp
 end
