@@ -7,8 +7,7 @@ exchange with item i+3, and so on
  Email james.wilson@rccd.edu with the url to the source code on GitHub
 
 *** 22 points ***
-
-#include Irvine32.inc
+INCLUDE Irvine32.inc
 
 .386
 .model flat,stdcall
