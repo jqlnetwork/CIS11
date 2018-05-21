@@ -1,9 +1,15 @@
 INCLUDE Irvine32.inc
 
+.386			
+;.model flat,stdcall
+;.stack 4096
+;ExitProcess proto,dwExitCode:DWORD
+
 .data
-op1 BYTE ?;
-x DWORD ?;
-Y DWORD ?;
+op1 BYTE "Enter an option: ", 0;
+x BYTE ?;
+Y BYTE ?;
+answer BYTE ?
 
 CaseTable BYTE '1' 
 DWORD ANDxy
@@ -24,10 +30,10 @@ c2 BYTE "2. x OR y", 0;
 c3 BYTE "3. NOT x", 0;
 c4 BYTE "4. x XOR y", 0;
 c5 BYTE "5. Exit Program",0;
-c6 BYTE "Enter HEX X", 0
-c7 BYTE "Enter HEX Y", 0
+c6 BYTE "Enter HEX X: ", 0
+c7 BYTE "Enter HEX Y: ", 0
 
-answer BYTE ?
+
 
 .code
 main proc
@@ -35,6 +41,10 @@ main proc
 	mov eax, 0;
 
 ; display the options
+
+	mov edx, OFFSET op1
+	call WriteString
+	call Crlf
 
 	mov edx, OFFSET c1;
 	call WriteString;
@@ -124,6 +134,7 @@ ORxy proc
 	call Crlf;
 
 	;OR them, but u cannot (mem,mem)
+
 	OR al, x;
 	mov y, al;
 	mov edx, OFFSET answer;
