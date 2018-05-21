@@ -19,23 +19,26 @@
 Crlf proto
 ExitProcess proto
 WriteInt64 proto
-
+ReadInt64 proto
 
 .data
 array1 QWORD 1, 4, 5, 2, 7, 9, 3, 6, 8
 
 .code
+
 main proc
 
 ;print the array
 	mov rcx, LENGTHOF array1
 	mov rsi, 0
+
 L1:
 	mov rax, array1[rsi * 8]
 	call WriteInt64
 	inc rsi
 LOOP L1
 call Crlf
+call ReadInt64
 
 ; bubble sort the array
 mov rcx, LENGTHOF array1 ; resets the loop counter
@@ -57,14 +60,13 @@ OUTERLOOP:
 		SWAP:
 			mov r13, r9
 			mov array1[rsi *8], r10
-			mov array1[rsi *8], r13
+			mov array1[(rsi *8) + 8], r13
 			
 			ENDLOOP:
 				inc rsi
 	LOOP INNERLOOP
 	mov rcx, r15
 LOOP OUTERLOOP
-LOOP ENDLOOP
 
 ; print the array
 	mov rcx, LENGTHOF array1
@@ -74,7 +76,9 @@ L3:
 	call WriteInt64
 	inc rsi
 LOOP L3
+call Crlf
+call ReadInt64
 
-	call  ExitProcess
+call ExitProcess
 main endp
 end
