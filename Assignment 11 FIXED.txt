@@ -25,7 +25,6 @@ mov ecx, LENGTHOF myArray -1 ;
 L1:
 	mov ebx, [esi] ;
 	mov edx, [esi + 4] ; 
-
 	mov [esi], edx ;
 	mov [esi + 4], ebx ;
 	add esi, TYPE myArray ;
@@ -36,3 +35,5 @@ LOOP L1
 main endp
 
 end main
+
+; my mistake was putting the array inside code instead of data
