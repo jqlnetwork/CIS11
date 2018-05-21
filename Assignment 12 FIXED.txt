@@ -10,6 +10,7 @@
 
 ExitProcess proto
 WriteInt64 proto
+ReadInt64 proto
 Crlf proto
 
 .data
@@ -18,9 +19,9 @@ lArray QWORD 4 DUP(0)           ; lastArray
 
 .code
 main proc
-mov ecx, LENGTHOF fArray        ; first make a loop counter equal to the length of the first array.
-mov esi, 0
-mov r15, 4
+mov rcx, LENGTHOF fArray        ; first make a loop counter equal to the length of the first array.
+mov rsi, 0
+mov r15, 8
 
 
 ; add this to the program
@@ -35,14 +36,11 @@ mov r15, 4
 ; call WriteInt64
 ; end loop
 
-mov ecx, LENGTH fArray ; same as mov rcx, 4
-mov esi, 0 ; source 
-
 PRINTLOOP:
 	mov rax, rsi
 	mul r15
 	mov rdi, rax
-	mov rax, lArray[rdi]
+	mov rax, fArray[rdi]
 	call WriteInt64
 LOOP PRINTLOOP
 call Crlf
@@ -54,14 +52,17 @@ call Crlf
 ;if last position,
 ;paste current position to first position of lArray
 
+mov rcx, LENGTHOF fArray
+mov rsi, 0
+
 L1:
 	mov rax, rsi
-	mul r15 ; allows u to move to the next index, but requires instantiation of r15
+	mul r15
 	mov rdx, fArray[rax]
 
-	cmp esi, 3
+	cmp rsi, 3
 	je HandleLast
-		mov lArray[rax + 4], rdx
+		mov lArray[rax + 8], rdx
 	jmp EndLoop
 
 	HandleLast:
@@ -69,8 +70,19 @@ L1:
 
 	EndLoop:
 	inc rsi
-
 LOOP L1
+
+mov rcx, LENGTHOF fArray
+mov rsi, 0
+
+L2:
+	mov rax, rsi
+	mul r15
+	mov rdi, rax
+	mov rax, lArray[rdi]
+	call WriteInt64
+	call Crlf
+LOOP L2
 
 	call ExitProcess
 main endp
