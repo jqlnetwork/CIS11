@@ -1,0 +1,47 @@
+ Which assignment took you the longest to complete?
+ 
+ It was 7 for me because there was so much I had to learn to put together.
+ I used examples from google in order for me to learn about switches in assembly and how they work so there was an upside.
+ Assignment 7 showcases different procs, switches, user input and output and it shows the tip of what assembly can do in the hands of a capable programmer.
+ 
+ Which assignment was the most difficult?
+ Also 7 for the reasons above. I had to reread the chapters which had different procs and user inputs and outputs.
+ 
+ Which assignment was the easiest?
+ I think when getting into a programming class, the first assignment is usually the easiest, but in this case, it was assignment 8.
+ It only felt easier as there was only 4 questions and as long as you understood what the chapter was teaching you, or what the teacher was teaching you, you can find it out by debugging.
+ ...or using a calculator, but I used debug to learn.
+ 
+ Of the concepts we covered, which (if any) are you the most confused about still?
+ I am super confused on the r8-15 registers, and most registers in general. Like, why do they have so many uses and without spending more time using them, I wouldn't be able to figure them out.
+ 
+ If we had an extra week to spend on any of the concepts covered in this course, which one would it be?
+ Different types of register uses for sure. mul r15 and etc.
+ 
+ Were there any assignments you felt were unnecessarily tedious (not necessarily difficult, but that took too long to complete)
+ Yes, the first few where it was just writing. It helps but I think coders prefer hands on training/work.
+ 
+ Which assignment was your favorite?
+ Assignment 11 and 13. Figuring out swapping and exchanging was neato.
+ 
+ Which assignment do you think you learned the most from?
+ Assignment 7. It had the most fundamentals required in order to complete it.
+ 
+ Were the assignment requirements and due dates clear enough? If not, how so?
+ At the beginning, the github homework page was kind of messy, but it was tidied up by the end.
+ 
+ On a scale of 1-5, rate the difficulty (1=Breating, 5=Exiting Vim) of this course compared to other CIS courses you've taken.
+ I have taken every other computer science class besides this and 18C Java data structures and this deserved a 3/5.
+ Once you understand a language such as C++, Java was fill in the blank, but Assembly played by much different rules so it wasn't that easy to grasp.
+ Also good analogy on the difficulty levels, my friend uses vim and i'd rather not touch that ever if I don't have to. Couldn't even type a block of code with vim.
+ 
+ Was the book used in this course effective/helpful? Would you recommend a different one?
+ I'm used to Professor Rainey's teaching method where he takes his Tony Gaddis C++ book and prints out the exact materials we need to cover for the class. He does waste alot of paper though.
+ Reading on my own wasn't too bad, I generally hate reading books. But as long as it's programming, I am more interested in the material.
+ 
+ Were there any topics that we didn't cover that you would have liked to see included?
+Not from the top of my head.
+ 
+ How can this course be improved?
+I think the best way to teach programming, especially in more harder classes such as this is before you assign the homework, so us examples and work with us on what it should look like.
+Not the homework itself, but something similar to it. It's more fun that way and we learn more from figuring the rest ourselves. This includes adding on things we learned the previous week.
